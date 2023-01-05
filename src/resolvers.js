@@ -36,9 +36,17 @@ const resolvers = {
       }
     },
   },
+  Module: {
+    durationInSeconds({ length }) {
+      return length;
+    },
+  },
   Track: {
     author: ({ authorId }, _, { dataSources }) => {
       return dataSources.trackAPI.getAuthor(authorId);
+    },
+    durationInSeconds({ length }) {
+      return length;
     },
 
     modules: ({ id }, _, { dataSources }) => {
